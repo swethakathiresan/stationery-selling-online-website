@@ -1,3 +1,6 @@
+![logo](https://user-images.githubusercontent.com/86646613/210504131-43cb4e90-a6d5-4ae2-abbd-928403588528.jpg)
+
+
 INTRODUCTION:
 
 You probably already know that e-commerce websites are typically used to sell goods and electronic devices. I've introduced a fresh idea for selling stationary goods to buck this tendency. the online stationery store where customers can browse the entire collection without physically visiting the store. All different kinds of books, as well as supplies for schools, are available at this stationery store. This website offers the sale of things in mass instead of selling them in smaller quantities, which can be a negative to such companies because stationary products are relatively inexpensive.
