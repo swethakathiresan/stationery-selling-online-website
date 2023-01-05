@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>stationery project</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    </head>
+
+    <style>
+       img{
+            width: 100px;
+            float:left;
+            margin-left: 400px;
+
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'roboto', sans-serif;
+        }
+
+        .navbar{
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #f5f5f5;
+            z-index: 9;
+        }
+
+        .nav{
+            padding: 10px 10vw;
+            display: flex;
+            justify-content: space-between;
+        }                                                   
+
+        .nav h1{
+            font-size: 2em;
+            margin: .9em 0 .5em 0;
+            display: inline-block;
+        }
+
+        .brand-logo{
+            height: 60px;
+        }
+
+        .nav-items{
+            display:flex;
+            align-items: center;
+        }
+
+        .search{
+            width: 500px;
+            display: flex;
+        }
+
+        .search-box{
+            width: 80%;
+            height: 40px;
+            padding: 10px;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            border: 1px solid #d1d1d1;
+            text-transform: capitalize;
+            background: none;
+            color: #a9a9a9;
+            outline: none;
+        }
+
+        .search-btn{
+            width: 20%;
+            height: 40px;
+            padding: 10px 20px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            background: #383838;
+            color: #fff;
+            text-transform: capitalize;
+            font-size: 15px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .search-box::placeholder{
+            color: #a9a9a9;
+        }
+        
+
+        .nav-items a{
+            margin-left: 20px;
+        }
+
+        .nav-items a img{
+            width: 30px;
+        }
+
+        .dropdown{
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content{
+            display: none;
+            position: absolute;
+            background-color:whitesmoke;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a{
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover{background-color:#d1d1d1;}
+        .dropdown:hover .dropdown-content{display: block;}
+       
+
+        * {box-sizing: border-box;}
+            body {font-family: Verdana, sans-serif;}
+            .mySlides {display: none;}
+            img {vertical-align: center;}
+
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+        }
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        .active {
+            background-color: #717171;
+        }
+
+        /* Fading animation */
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+        @keyframes fade {
+            from {opacity: .4} 
+            to {opacity: 1}
+        }
+
+        /* On smaller screens, decrease text size */
+        @media only screen and (max-width: 300px) {
+        .text {font-size: 11px}
+        }
+
+
+        footer{
+            position: relative;
+            width: 100%;
+            padding: 40px 10vw;
+            padding-bottom: 80px;
+            background: #383838;
+        }
+
+        .footer-content{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .footer-content .logo{
+            height: 200px;
+            width: 200px;
+            margin-left: 10px; 
+           
+        }
+        .img2
+        {
+           margin-left: 10px; 
+        }
+
+        .footer-ul-container{
+            width: 45%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .category{
+            width: 200px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 10px;
+            list-style: none;
+        }
+
+        .category-title{
+            grid-column: span 2;
+            text-transform: capitalize;
+            color: #fff;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .category .footer-link{
+            text-decoration: none;
+            text-transform: capitalize;
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .footer-link:hover{
+            color: #fff;
+        }
+
+        .footer-title, .info{
+            color: rgba(255, 255, 255, 0.75);
+            margin: 20px 0;
+            text-transform: capitalize;
+        }
+
+        .footer-title{
+            margin-top: 80px;
+            color: #fff;
+        }
+
+        .footer-social-container{
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .social-link{
+            color: #fff;
+            margin-left: 20px;
+            text-transform: capitalize;
+        }
+
+        .social-link:nth-child(1){
+            margin-left: 0;
+        }
+
+        .footer-credit{
+            width: 100%;
+            padding: 10px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            text-align: center;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .just{
+            background-image:url('scribbles2.jpeg');
+            background-attachment: fixed;
+            background-size: cover;
+            background-color: lightslategray;
+        }
+
+        .next{
+            background-image:url('scribbles3.jpeg');
+            background-attachment: fixed;
+            background-size: cover;
+            background-color: lightslategray;
+        }
+
+        .button1 button{
+            background-color:ivory ;
+            border: none;
+            color:ghostwhite ;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            -webkit-transition-duration: 0.4s;
+            transition-duration: 0.4s;
+        }
+
+        .button1 button{
+            border-radius: 12px;
+        }
+
+        .button1:hover{
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);;
+            border-radius: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            }
+
+            .column {
+            float: left;
+            width: 250px;
+            padding: 10px;
+            }
+
+            /* Clearfix (clear floats) */
+            .row::after {
+            content: "";
+            clear: both;
+            display: table;
+            }
+
+            .collection-container{
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 10px;
+            }
+
+            .collection{
+                position: relative;
+            }
+
+            .collection img{
+                width: 200px;
+                height: 200px;
+                object-fit: cover;
+            }
+
+            .collection p{
+                position: absolute;
+                top: 50px;
+                left: 50px;
+                transform: translate(-50px, -50px);
+                text-align: center;
+                color: #fff;
+                font-size: 30px;
+                text-transform: capitalize;
+            }
+
+            .collection:nth-child(3){
+                grid-column: span 2;
+                margin-bottom: 10px;
+            }
+
+            #tb1
+            {
+                margin-left: 150px;
+                border:1px black dotted;
+            }
+            #cl1
+            {
+                padding-left: 70px;
+                padding-right: 40px;
+                background-color:antiquewhite;
+            }
+            #ul1
+            {
+                padding: 7px;
+            }
+            #ul1 li
+            {
+                padding: 5px;
+            }
+            #img1
+            {
+                padding: 25px;
+
+                position: relative;
+            }
+            .img1
+            {
+                width: 100%;
+                float:left;
+                margin-left: auto;
+            }
+            .overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0);
+                transition: background 0.5s ease;
+            }
+            #img1:hover .overlay {
+                display: block;
+                background: rgba(0, 0, 0, .3);
+            }
+            .button {
+                position: absolute;
+                width: 200px;
+                left:27;
+                top: 120px;
+                text-align: center;
+                opacity: 0;
+                transition: opacity .35s ease;
+            }
+            .button a {
+                width: 250px;
+                padding: 12px 48px;
+                font-size: 12px;
+                text-align: center;
+                color: black;
+                background-color:cornsilk;
+                border: solid 2px black;
+                z-index: 1;
+                text-decoration: none;
+            }
+            #img1:hover .button {
+                opacity: 1;
+            }
+            #images
+            {
+                width: 200px;
+                height: 200px;
+                
+            }
+            #imgtext
+            {
+                margin-left: 60px;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+             
+                top: 120px;
+                z-index: 1;
+                transition: top .5s ease;
+            }
+            #imgrate
+            {
+                text-align: center;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+               
+                top: 140px;
+                z-index: 1;
+                transition: top .5s ease;
+            }
+
+            .smbox {
+                display: flex;
+                flex-wrap: wrap;
+                transform: translateY(-100px);
+                justify-content: center;
+            }
+            .smbox span {
+                margin: 1%;
+                background: #fff;
+                box-shadow: inset 0px 0px 25px rgba(0,0,0,0.2),
+                                    0 0 40px rgba(0,0,0,0.3);
+                border-radius: 10px;
+                padding: 30px 50px;
+                cursor: pointer;
+            }
+            .smbox span:hover {
+                transform: scale(1.3);
+                transition: .5s ease;
+            }
+            .smbox .data {
+                font-size: 40px;
+                color: #FA6146;	
+            }
+            .smbox .det {
+                font-size: 20px;
+                color: #272529;
+                font-family: cursive;
+                padding-right: 70px;
+            }
+    
+
+    </style>
+
+    <body style="background-color:azure">
+        
+        <div>
+            <p style="text-align: center; font-size: medium;" >
+                <br>
+                <br>
+                &#128222; - 9488047800 &nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &#9993; Email: scribbles@gamil.com &nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                
+                Track Order&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                welcome <a href="login_page.html" style="color: red;" >SIGN UP</a>
+                <br>
+                <br>
+            </p>
+        </div>
+
+        <hr width = "1520">
+        
+        <nav class="navbar" style="background-color:lavenderblush;">
+            <div class="nav">
+                <img src="logo.jpg" alt="cit logo" width="70" height="90" style="margin-left: 0px;">
+                <h1 >SCRIBBLES</h1>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                
+                <div class="nav-items" st>
+                    <div class="search" >
+                        <input type="text" class="search-box" placeholder="search brand, product">
+                        <button class="search-btn">search</button>
+                    </div>
+                    <a href="stationery cart.html"><img src="cart.jpg" alt=""></a>
+                </div>
+            </div>
+            <hr width = "1520">
+            <div align="center">
+                <br><br>
+                <a href="stationery_project.html" style="color: black;text-decoration: none;"><i class="fa-solid fa-house"></i>HOME</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            
+                    <div class="dropdown">
+                        <a href="#" style="color: black;text-decoration: none;">STATIONERY</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="dropdown-content" style="width: 300px;">
+                            <br>
+                            <a href="D:\Coding\html\stationery\Public\stationery_notebooks.html">Notebooks</a>
+                            <a href="stationery_plannerjouernal.html">Planners & Journals</a>
+                            <a href="stationery_pen.html">Pens</a>
+                            <a href="stationery pencil.html">Pencils</a>
+                            <a href="stationery sharperns.html">Sharpeners</a>
+                            <a href="stationery eraser&correction.html">Eraser & correction</a>
+                            <a href="stationery highlighters.html">Highlighters</a>
+                            <a href="stationery notepads.html">Notepads</a>
+                            <a href="stationery_notebooks.html">Sticky Notes, Memo Blocks & Index</a>
+                            <a href="stationery notepads.html">Bookmarks</a>
+                        </div>
+                    </div>    
+                    <div class="dropdown" >
+                        <a href="#" style="color: black; text-decoration: none;">ART SUPPLIES</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="dropdown-content" style="width: 300px;">
+                            <br>
+                            <a href="stationery_paints.html">Paints</a>
+                            <a href="stationery_paints.html">Art Pencils</a>
+                            <a href="stationery_markerpen.html">Markers & Pens</a>
+                            <a href="stationery_markerpen.html">Glass Paints & Markers</a>
+                            <a href="stationery_markerpen.html">Fabric Paints & Markers</a>
+                            <a href="stationery_markerpen.html">Crayons & Oil Pastels</a>
+                            <a href="stationery_paints.html">Paint Brushes & Palette Knives</a>
+                            <a href="stationery notepads.html">Artist Sketch & Sheets</a>
+                            <a href="stationery_paints.html">Drawing</a>
+                        </div>
+                    </div>
+        
+                    <div class="dropdown" >
+                        <a href="stationery specialcombo.html" style="color: black;text-decoration: none;">SPECIAL COMBOS</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        
+                    </div>
+        
+                    <div class="dropdown">
+                        <a href="#" style="color: black;text-decoration: none;">CRAFT MATERIALS</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="dropdown-content" style="width: 300px;">
+                            <br>
+                            <a href="stationery craft.html">Masking & Decoration Tapes</a>
+                            <a href="stationery craft.html">Glue & Adhesive</a>
+                            <a href="stationery craft.html">Stencils & Stickers</a>
+                            <a href="stationery craft.html">Stamps & Pads</a>
+                            <a href="stationery craft.html">Backpacks</a>
+                            <a href="stationery craft.html">DIY Box & Kids Art Kit</a>
+                        </div>
+                    </div>
+        
+                    <div class="dropdown">
+                        <a href="#" style="color: black;text-decoration: none;">DESK TOOLS</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="dropdown-content">
+                            <br>
+                            <div class="desk" style="width: 400px;">
+                                <a href="stationery desktool.html">Office Essentials</a>
+                                <a href="stationery desktool.html">Work from Home</a>
+                                <a href="stationery desktool.html">Straplers & Punches</a>
+                                <a href="stationery notepads.html">Scissors & Paper-Trimmers</a>
+                                <a href="stationery desktool.html">Pen Stand & Organisers</a>
+                                <a href="stationery desktool.html">Rulers & Measuring Tools</a>
+                                <a href="stationery desktool.html">Cutters & Tape Dispenser</a>
+                                <a href="stationery desktool.html">Paperclips, Fasteners & Rubber bands</a>
+                                <a href="stationery desktool.html">Folders & Fillings</a>
+                                <a href="stationery desktool.html">Digital Calculators</a>
+                                <a href="stationery desktool.html">White-Board & Permanent Markers</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown" >
+                        <a href="stationery_returnexchange.html" style="color: black;text-decoration: none;">RETURN AND EXCHANGE</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </div>
+        
+                <br><br>
+            </div>
+            </nav>
+         
+        
+        <div class="just" style="color:whitesmoke;">
+            <br><br><br><br><br><br>
+            <h1 align = "center" style="font-family:Edwardian Script ITC;font-size:300px;">Scribbles</h1><br>
+            <br>
+            <h2 align = "center" style="font-size: 40px;font-family:Bradley Hand ITC;">BEST STATIONERY COLLECTION OF ALL THE TIME</h2>
+            <center>
+                <br>
+                <br>
+                <br>
+                <hr width="40"><br>
+                <hr width="90"><br>
+                <hr width="40">
+            </center>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            
+        </div>
+        <br><br><br><br><br><br><br>
+
+        <div class="extra">
+            <div class="smbox">
+                <span><center><div class="data">Notebooks</div><div class="det"><img src="1_notebooks.jpeg" style="height:100px;width:200px;" ></img></div></center></span>
+                <span><center><div class="data">Pen & Pencils</div><div class="det"><img src="3_penspencil.jpeg" style="height:100px;width:200px;" ></div></center></span><br>
+                <span><center><div class="data">Office notes</div><div class="det"><img src="2_officemart.jpeg" style="height:100px;width:200px;" ></div></center></span>
+                <span><center><div class="data">Craft materials</div><div class="det"><img src="5_craftsupplies.jpeg" style="height:100px;width:200px;" ></div></center></span>
+                <span><center><div class="data">Paints</div><div class="det"><img src="4_artsupplies.jpeg" style="height:100px;width:200px;" ></div></center></span>
+            </div>
+	    </div>
+
+        <br><br>
+
+        
+        <div class="next" style="color:ghostwhite ;">
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <b>
+            <h2 align="center" style="font-size: 40px;font-family:Bradley Hand ITC;">Didn't find the product here?</h2>
+            <h2 align="center" style="font-size: 40px; font-family:Bradley Hand ITC;">Suggest it & we will source it for you</h2>
+        </b>
+        <br><br>
+            <div class="button1">
+                <button style="margin-left: 650px;"><a href="stationery_suggestion.html" style="text-decoration: none;">SUGGEST HERE!</a></button>
+            </div>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        </div>
+
+        <br><br>
+
+        <div>
+            <h1 style="margin-left: 70px;" ><b>FEATURED BRAND</b></h1>
+            <br>
+            <div class="row">
+                <div class="column">
+                <img src="brand1.png" alt="Snow" style="width:100%;margin-left: 70px;">
+                </div>
+                <div class="column">
+                <img src="brand2.png" alt="Forest" style="width:100%;margin-left: 80px;">
+                </div>
+                <div class="column">
+                <img src="brand3.png" alt="Mountains" style="width:100%;margin-left: 90px;">
+                </div>
+                <div class="column">
+                <img src="brand4.png" alt="Snow" style="width:100%; margin-left: 100px;">
+                </div>
+                <div class="column">
+                <img src="brand9.jpg" alt="Snow" style="width:100%; margin-left: 110px;">
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                <img src="brand5.png" alt="Snow" style="width:100%; margin-left: 70px;">
+                </div>
+                <div class="column">
+                <img src="brand6.jpg" alt="Forest" style="width:100%; margin-left: 80px;">
+                </div>
+                <div class="column">
+                <img src="brand7.png" alt="Mountains" style="width:100%; margin-left: 90px;">
+                </div>
+                <div class="column">
+                <img src="brand8.png" alt="Snow" style="width:100%; margin-left: 100px;">
+                </div>
+                <div class="column">
+                <img src="brand10.png" alt="Snow" style="width:100%; margin-left: 110px;">
+                </div>
+            </div>
+        </div>
+
+        <br><br><br>
+
+        <footer>
+        
+            <div class="footer-content">
+                <div class="img2">
+                <center><img src="logo.jpg" alt="cit logo" width="600" height="150" ></center>
+                </div>
+                <div class="footer-ul-container">
+                    <ul class="category">
+                        <li class="category-title">STATIONERY</li>
+                        <li><a href="#" class="footer-link">PENS</a></li>
+                        <li><a href="#" class="footer-link">SKETCHS</a></li>
+                        <li><a href="#" class="footer-link">PAPERS</a></li>
+                        <li><a href="#" class="footer-link">NOTE BOOKS</a></li>
+                        <li><a href="#" class="footer-link">ARTIST SUPPIERS</a></li>
+                        <li><a href="#" class="footer-link">CRAFT SIPPIERS</a></li>
+                        <li><a href="#" class="footer-link">CARTRIDES</a></li>
+                        <li><a href="#" class="footer-link">CALCULATORS</a></li>
+                        <li><a href="#" class="footer-link">INK AND TONER</a></li>
+                        <li><a href="#" class="footer-link">OFFICE ESSENTIALS</a></li>
+                    </ul>
+                    <ul class="category">
+                        <li class="category-title">ALL BRANDS</li>
+                        <li><a href="#" class="footer-link">3M</a></li>
+                        <li><a href="#" class="footer-link">ADD GEL</a></li>
+                        <li><a href="#" class="footer-link">AJS</a></li>
+                        <li><a href="#" class="footer-link">ALTECO</a></li>
+                        <li><a href="#" class="footer-link">ANUPAM</a></li>
+                        <li><a href="#" class="footer-link">APSARA</a></li>
+                        <li><a href="#" class="footer-link">ARTLINE</a></li>
+                        <li><a href="#" class="footer-link">B2B</a></li>
+                        <li><a href="#" class="footer-link">BITCO</a></li>
+                        <li><a href="#" class="footer-link">BROTHER</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="footer-title">about company</p>
+            <p class="info">Scribbles, an e-commerce shooping complex for personal, institutional
+                            and office stationery, is a division of Emarktz India Pvt. Ltd. This virtual
+                            stationery market endeavours to bring a wide variety og products at discouted rates
+            </p>
+            <p class="info">support emails - scribbles@gmail.com, customersupport@gmail.com</p>
+            <p class="info">telephone - 180 00 00 001, 180 00 00 002</p>
+            <div class="footer-social-container">
+                <div>
+                    <a href="#" class="social-link">terms & services</a>
+                    <a href="#" class="social-link">privacy page</a>
+                </div>
+                <div>
+                    <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i>&nbsp;instagram</a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i>&nbsp;facebook</a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-twitter"></i>&nbsp;twitter</a>
+                </div>
+            </div>
+            <p class="footer-credit">Stationery, Best apparels online store</p>
+        </footer>
+
+    </body>
+
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+        
+        function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}    
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " active";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+    </script>
+    
+</html>
