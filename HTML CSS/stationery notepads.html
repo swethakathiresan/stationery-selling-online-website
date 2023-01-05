@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>stationery_plannerjouernal </title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+        <link rel="stylesheet" href="D:\Coding\html\stationery\nav_style.scss">
+    </head>
+
+<style>
+        img{
+            width: 100px;
+            float:left;
+            margin-left: 400px;
+
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'roboto', sans-serif;
+        }
+
+        .navbar{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #f5f5f5;
+            z-index: 9;
+        }
+
+        .nav{
+            padding: 10px 10vw;
+            display: flex;
+            justify-content: space-between;
+        }                                                   
+
+        .nav h1{
+            font-size: 2em;
+            margin: .9em 0 .5em 0;
+            display: inline-block;
+        }
+
+        .brand-logo{
+            height: 60px;
+        }
+
+        .nav-items{
+            display:flex;
+            align-items: center;
+        }
+
+        .search{
+            width: 500px;
+            display: flex;
+        }
+
+        .search-box{
+            width: 80%;
+            height: 40px;
+            padding: 10px;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            border: 1px solid #d1d1d1;
+            text-transform: capitalize;
+            background: none;
+            color: #a9a9a9;
+            outline: none;
+        }
+
+        .search-btn{
+            width: 20%;
+            height: 40px;
+            padding: 10px 20px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            background: #383838;
+            color: #fff;
+            text-transform: capitalize;
+            font-size: 15px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .search-box::placeholder{
+            color: #a9a9a9;
+        }
+        
+
+        .nav-items a{
+            margin-left: 20px;
+        }
+
+        .nav-items a img{
+            width: 30px;
+        }
+
+        .dropdown{
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content{
+            display: none;
+            position: absolute;
+            background-color:whitesmoke;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a{
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover{background-color:#d1d1d1;}
+        .dropdown:hover .dropdown-content{display: block;}
+        
+        .sat{
+            display: inline-block;
+            width: 1100px;
+            height: 390px;
+        }
+
+        .desk{
+            display: inline-block;
+            width: 400px;
+            height:250px;
+        }
+
+        .art{
+            display: inline-block;
+            width: 1000px;
+            height: 570px;
+        }
+
+        .product-container{
+            padding: 0 10vw;
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior:smooth;
+        }
+
+        .product-container::-webkit-scrollbar{
+            display: none;
+        }
+
+        .product-card{
+            flex: 0 0 auto;
+            width: 250px;
+            height: 450px;
+            margin-right: 40px;
+        }
+
+        .product-image{
+            position: relative;
+            width: 100%;
+            height: 350px;
+        }
+
+        .product-thumb{
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            
+        }
+
+        .discount-tag{
+            position: absolute;
+            background: #fff;
+            padding: 5px;
+            border-radius: 5px;
+            color: #ff7d7d;
+            right: 10px;
+            top: 10px;
+            text-transform: capitalize;
+        }
+
+        .card-btn{
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px;
+            width: 90%;
+            text-transform: capitalize;
+            border: none;
+            outline: none;
+            background: #fff;
+            border-radius: 5px;
+            transition: 0.5s;
+            cursor: pointer;
+            opacity: 0;
+        }
+
+        .product-card:hover .card-btn{
+            opacity: 1;
+        }
+
+        .card-btn:hover{
+            background: #efefef;
+        }
+
+        .product-info{
+            width: 100%;
+            height: 100px;
+            padding-top: 10px;
+        }
+
+        .product-brand{
+            text-transform: uppercase;
+        }
+
+        .product-short-des{
+            width: 100%;
+            height: 20px;
+            line-height: 20px;
+            overflow: hidden;
+            opacity: 0.5;
+            text-transform: capitalize;
+            margin: 5px 0;
+            font-size: small;
+        }
+
+        .price{
+            font-weight: 900;
+            font-size: 20px;
+        }
+
+        .actual-price{
+            margin-left: 20px;
+            opacity: 0.5;
+            text-decoration: line-through;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+
+        .sidenav a {
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .main {
+            margin-left: 160px; /* Same as the width of the sidenav */
+            font-size: 18px; /* Increased text to enable scrolling */
+            padding: 0px 10px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {padding-top: 15px;}
+            .sidenav a {font-size: 18px;}
+        }
+
+
+</style>
+
+
+<body style="background-color:azure">
+        
+    
+    <nav class="navbar" style="background-color:lavenderblush;">
+        <div class="nav">
+            <img src="logo.jpg" alt="cit logo" width="70" height="90" style="margin-left: 0px;">
+            <h1 >SCRIBBLES</h1>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            
+            <div class="nav-items" st>
+                <div class="search" >
+                    <input type="text" class="search-box" placeholder="search brand, product">
+                    <button class="search-btn">search</button>
+                </div>
+                <a href="stationery cart.html"><img src="cart.jpg" alt=""></a>
+            </div>
+        </div>
+        <hr width = "1520">
+        <div align="center">
+            <br><br>
+            <a href="stationery_project.html" style="color: black;text-decoration: none;"><i class="fa-solid fa-house"></i>HOME</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+                <div class="dropdown">
+                    <a href="#" style="color: black;text-decoration: none;">STATIONERY</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="dropdown-content" style="width: 300px;">
+                        <br>
+                        <a href="D:\Coding\html\stationery\Public\stationery_notebooks.html">Notebooks</a>
+                        <a href="stationery_plannerjouernal.html">Planners & Journals</a>
+                        <a href="stationery_pen.html">Pens</a>
+                        <a href="stationery pencil.html">Pencils</a>
+                        <a href="stationery sharperns.html">Sharpeners</a>
+                        <a href="stationery eraser&correction.html">Eraser & correction</a>
+                        <a href="stationery highlighters.html">Highlighters</a>
+                        <a href="stationery notepads.html">Notepads</a>
+                        <a href="stationery_notebooks.html">Sticky Notes, Memo Blocks & Index</a>
+                        <a href="stationery notepads.html">Bookmarks</a>
+                    </div>
+                </div>    
+                <div class="dropdown" >
+                    <a href="#" style="color: black; text-decoration: none;">ART SUPPLIES</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="dropdown-content" style="width: 300px;">
+                        <br>
+                        <a href="stationery_paints.html">Paints</a>
+                        <a href="stationery_paints.html">Art Pencils</a>
+                        <a href="stationery_markerpen.html">Markers & Pens</a>
+                        <a href="stationery_markerpen.html">Glass Paints & Markers</a>
+                        <a href="stationery_markerpen.html">Fabric Paints & Markers</a>
+                        <a href="stationery_markerpen.html">Crayons & Oil Pastels</a>
+                        <a href="stationery_paints.html">Paint Brushes & Palette Knives</a>
+                        <a href="stationery notepads.html">Artist Sketch & Sheets</a>
+                        <a href="stationery_paints.html">Drawing</a>
+                    </div>
+                </div>
+    
+                <div class="dropdown" >
+                    <a href="stationery specialcombo.html" style="color: black;text-decoration: none;">SPECIAL COMBOS</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        
+                </div>
+    
+                <div class="dropdown">
+                    <a href="#" style="color: black;text-decoration: none;">CRAFT MATERIALS</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="dropdown-content" style="width: 300px;">
+                        <br>
+                        <a href="stationery craft.html">Masking & Decoration Tapes</a>
+                        <a href="stationery craft.html">Glue & Adhesive</a>
+                        <a href="stationery craft.html">Stencils & Stickers</a>
+                        <a href="stationery craft.html">Stamps & Pads</a>
+                        <a href="stationery craft.html">Backpacks</a>
+                        <a href="stationery craft.html">DIY Box & Kids Art Kit</a>
+                    </div>
+                </div>
+    
+                <div class="dropdown">
+                    <a href="#" style="color: black;text-decoration: none;">DESK TOOLS</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="dropdown-content">
+                        <br>
+                        <div class="desk" style="width: 400px;">
+                            <a href="stationery desktool.html">Office Essentials</a>
+                            <a href="stationery desktool.html">Work from Home</a>
+                            <a href="stationery desktool.html">Straplers & Punches</a>
+                            <a href="stationery notepads.html">Scissors & Paper-Trimmers</a>
+                            <a href="stationery desktool.html">Pen Stand & Organisers</a>
+                            <a href="stationery desktool.html">Rulers & Measuring Tools</a>
+                            <a href="stationery desktool.html">Cutters & Tape Dispenser</a>
+                            <a href="stationery desktool.html">Paperclips, Fasteners & Rubber bands</a>
+                            <a href="stationery desktool.html">Folders & Fillings</a>
+                            <a href="stationery desktool.html">Digital Calculators</a>
+                            <a href="stationery desktool.html">White-Board & Permanent Markers</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown" >
+                    <a href="#" style="color: black;text-decoration: none;">RETURN AND EXCHANGE</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+    
+            <br><br>
+        </div>
+        </nav>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <!--<div class="sidenav">
+        <br><br><br><br><br><br><br><br><br><br>
+        <a href="D:\Coding\html\stationery\Public\stationery_notebooks.html">Notebooks</a>
+        <a href="#">Planners & Journals</a>
+        <a href="#">Pens</a>
+        <a href="#">Pencils</a>
+        <a href="#">Sharpeners</a>
+        <a href="#">Eraser & correction</a>
+        <a href="#">Highlighters</a>
+        <a href="#">Notepads</a>
+        <a href="#">Sticky Notes, Memo Blocks & Index</a>
+        <a href="#">Bookmarks</a>
+    </div>-->
+    
+    <div class="main">
+            <div class="product-container">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="np1.jpg" class="product-thumb" alt="note" style="margin-left: 0px;">
+                            <button class="card-btn">add to cart</button>
+                        </div>
+                        <div class="product-info">
+                            <h2 class="product-brand">clickedin</h2>
+                            <p class="product-short-des">office Notepads|pack of 4|275x205mm</p>
+                            <span class="price">&#8377;50</span><span class="actual-price">&#8377;250</span>
+                        </div>
+                    </div>
+                
+                
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="np2.jpg" class="product-thumb" alt="note" style="margin-left: 0px;">
+                            <button class="card-btn">add to cart</button>
+                        </div>
+                        <div class="product-info">
+                            <h2 class="product-brand">WWF</h2>
+                            <p class="product-short-des">india panda notepad|ruked pages</p>
+                            <span class="price">&#8377;350</span><span class="actual-price">&#8377;650</span>
+                        </div>
+                    </div>
+                
+                
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="np3.jpg" class="product-thumb" alt="note" style="margin-left: 0px;">
+                            <button class="card-btn">add to cart</button>
+                        </div>
+                        <div class="product-info">
+                            <h2 class="product-brand">Diarymart</h2>
+                            <p class="product-short-des">list notepad notes tear-off pad|pack of 4</p>
+                            <span class="price">&#8377;200</span><span class="actual-price">&#8377;300</span>
+                        </div>
+                    </div>
+                
+                
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="np4.jpg" class="product-thumb" alt="note" style="margin-left: 0px;">
+                            <button class="card-btn">add to cart</button>
+                        </div>
+                        <div class="product-info">
+                            <h2 class="product-brand">COI</h2>
+                            <p class="product-short-des">list notepads notes tear-off padd|pack of 4</p>
+                            <span class="price">&#8377;80</span><span class="actual-price">&#8377;150</span>
+                        </div>
+                    </div>
+            </div>
+        
+        <br><br><br>
+            <div class="product-container">
+               
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="np5.jpg" class="product-thumb" alt="note" style="margin-left: 0px;">
+                            <button class="card-btn">add to cart</button>
+                        </div>
+                        <div class="product-info">
+                            <h2 class="product-brand">SHAM KUNJ</h2>
+                            <p class="product-short-des">writing notepad|single line ruled|pack of 12</p>
+                            <span class="price">&#8377;150</span><span class="actual-price">&#8377;350</span>
+                        </div>
+                    </div>
+                
+                
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="np6.jpg" class="product-thumb" alt="note" style="margin-left: 0px;">
+                            <button class="card-btn">add to cart</button>
+                        </div>
+                        <div class="product-info">
+                            <h2 class="product-brand">JIADA</h2>
+                            <p class="product-short-des">big size flamingo sprial notepad with Stickers</p>
+                            <span class="price">&#8377;120</span><span class="actual-price">&#8377;230</span>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="np7.jpg" class="product-thumb" alt="note" style="margin-left: 0px;">
+                            <button class="card-btn">add to cart</button>
+                        </div>
+                        <div class="product-info">
+                            <h2 class="product-brand">SOLIMO</h2>
+                            <p class="product-short-des">wirebound pocket sixe notepad|90 pages|pack of 10</p>
+                            <span class="price">&#8377;300</span><span class="actual-price">&#8377;650</span>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="np8.jpg" class="product-thumb" alt="note" style="margin-left: 0px;">
+                            <button class="card-btn">add to cart</button>
+                        </div>
+                        <div class="product-info">
+                            <h2 class="product-brand">Yashvin</h2>
+                    <p class="product-short-des">small notpad|pack of 5|pocket size</p>
+                            <span class="price">&#8377;350</span><span class="actual-price">&#8377;660</span>
+                        </div>
+                    </div>
+                
+            </div>
+<br><br><br>
+        <div class="product-container">
+                
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="np9.jpg" class="product-thumb" alt="note" style="margin-left: 0px;">
+                    <button class="card-btn">add to cart</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">COI</h2>
+                    <p class="product-short-des">list notepad|undated productivity|set of 4</p>
+                    <span class="price">&#8377;350</span><span class="actual-price">&#8377;750</span>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="np10.jpg" class="product-thumb" alt="note" style="margin-left: 0px;">
+                    <button class="card-btn">add to cart</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">COI</h2>
+                    <p class="product-short-des">notepad planner|set of 4</p>
+                    <span class="price">&#8377;350</span><span class="actual-price">&#8377;500</span>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="np11.jpg" class="product-thumb" alt="note" style="margin-left: 0px;">
+                    <button class="card-btn">add to cart</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">COI</h2>
+                    <p class="product-short-des">G$GIFT things to fo sprial notepad</p>
+                    <span class="price">&#8377;150</span><span class="actual-price">&#8377;500</span>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="np12.jpg" class="product-thumb" alt="note" style="margin-left: 0px;">
+                    <button class="card-btn">add to cart</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">SOLIMO</h2>
+                    <p class="product-short-des">daily undated notepad|50 tear-off sheets|set of 4</p>
+                    <span class="price">&#8377;300</span><span class="actual-price">&#8377;500</span>
+                </div>
+            </div>
+        </div>
+<br><br><br>
+        <div class="product-container">
+                
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="np13.jpg" class="product-thumb" alt="note" style="margin-left: 0px;">
+                    <button class="card-btn">add to cart</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">COI</h2>
+                    <p class="product-short-des">daily planne tear-off list notepad|set of 6</p>
+                    <span class="price">&#8377;100</span><span class="actual-price">&#8377;300</span>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="np14.jpg" class="product-thumb" alt="note" style="margin-left: 0px;">
+                    <button class="card-btn">add to cart</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">SANCAST</h2>
+                    <p class="product-short-des">single line ruled notepad|pack of 10</p>
+                    <span class="price">&#8377;170</span><span class="actual-price">&#8377;200</span>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="np15.jpg" class="product-thumb" alt="note" style="margin-left: 0px;">
+                    <button class="card-btn">add to cart</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">SOLIMO</h2>
+                    <p class="product-short-des">notepad|50 tear-off sheets|pack of 2</p>
+                    <span class="price">&#8377;300</span><span class="actual-price">&#8377;600</span>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="np16.jpg" class="product-thumb" alt="note" style="margin-left: 0px;">
+                    <button class="card-btn">add to cart</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">Dahsha</h2>
+                    <p class="product-short-des">pack of 20|30 pages for office</p>
+                    <span class="price">&#8377;100</span><span class="actual-price">&#8377;200</span>
+                </div>
+            </div>
+        
+        </div>  
+    </div>
+</body>
+</html>
