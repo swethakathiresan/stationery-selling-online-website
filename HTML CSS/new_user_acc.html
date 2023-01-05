@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>user acc create page</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    </head>
+
+    <style>
+        img{
+                width: 100px;
+                float:left;
+                margin-left: 400px;
+    
+            }
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'roboto', sans-serif;
+            }
+    
+            .navbar{
+                position: sticky;
+                top: 0;
+                left: 0;
+                width: 100%;
+                background: #f5f5f5;
+                z-index: 9;
+            }
+    
+            .nav{
+                padding: 10px 10vw;
+                display: flex;
+                justify-content: space-between;
+            }                                                   
+    
+            .nav h1{
+                font-size: 2em;
+                margin: .9em 0 .5em 0;
+                display: inline-block;
+            }
+    
+            .brand-logo{
+                height: 60px;
+            }
+    
+            .nav-items{
+                display:flex;
+                align-items: center;
+            }
+    
+            .search{
+                width: 500px;
+                display: flex;
+            }
+    
+            .search-box{
+                width: 80%;
+                height: 40px;
+                padding: 10px;
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+                border: 1px solid #d1d1d1;
+                text-transform: capitalize;
+                background: none;
+                color: #a9a9a9;
+                outline: none;
+            }
+    
+            .search-btn{
+                width: 20%;
+                height: 40px;
+                padding: 10px 20px;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                background: #383838;
+                color: #fff;
+                text-transform: capitalize;
+                font-size: 15px;
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+            }
+    
+            .search-box::placeholder{
+                color: #a9a9a9;
+            }
+            
+    
+            .nav-items a{
+                margin-left: 20px;
+            }
+    
+            .nav-items a img{
+                width: 30px;
+            }
+    
+            .dropdown{
+                position: relative;
+                display: inline-block;
+            }
+    
+            .dropdown-content{
+                display: none;
+                position: absolute;
+                background-color:whitesmoke;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+            }
+    
+            .dropdown-content a{
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+            .dropdown-content a:hover{background-color:#d1d1d1;}
+            .dropdown:hover .dropdown-content{display: block;}
+            
+            .sat{
+                display: inline-block;
+                width: 1100px;
+                height: 390px;
+            }
+    
+            .desk{
+                display: inline-block;
+                width: 400px;
+                height:300px;
+            }
+    
+            .art{
+                display: inline-block;
+                width: 1000px;
+                height: 570px;
+            }
+            
+    
+            body 
+            {
+            background-image:url('login_bg.jpeg');
+            background-attachment: fixed;
+            background-size: cover;
+            }
+            .animate {
+            -webkit-transition: all 0.3s linear;
+            transition: all 0.3s linear;
+            }
+            .text-center {
+            text-align: center;
+            }
+            .pull-left {
+            float: left;
+            }
+            .pull-right {
+            float: right;
+            }
+            .clearfix:after {
+            visibility: hidden;
+            display: block;
+            font-size: 0;
+            content: " ";
+            clear: both;
+            height: 0;
+            }
+            .clearfix {
+            display: inline-block;
+            }
+            /* start commented backslash hack \*/
+            * html .clearfix {
+            height: 1%;
+            }
+            .clearfix {
+            display: block;
+            }
+            /* close commented backslash hack */
+            a {
+            color: snow;
+            }
+            a:hover,
+            a:focus {
+            color:deeppink;
+            -webkit-transition: all 0.3s linear;
+            transition: all 0.3s linear;
+            }
+            .text-primary {
+            color: deeppink;
+            }
+            input:-webkit-autofill {
+            box-shadow: 0 0 0 1000px lightslategray !important;
+            }
+            .logo h1 {
+            color:snow;
+            margin-bottom: -12px;
+            }
+            input[type="checkbox"] {
+            width: auto;
+            }
+            button {
+            cursor: pointer;
+            background: deeppink;
+            width: 100%;
+            border: 0;
+            padding: 10px 15px;
+            color: #fff;
+            font-size: 20px;
+            -webkit-transition: 0.3s linear;
+            transition: 0.3s linear;
+            }
+            span.validate-tooltip {
+            background: #D91717;
+            width: 100%;
+            display: block;
+            padding: 5px;
+            color: #fff;
+            box-sizing: border-box;
+            font-size: 14px;
+            margin-top: -28px;
+            -webkit-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+            -webkit-animation: tooltipanimation 0.3s 1;
+            animation: tooltipanimation 0.3s 1;
+            }
+            .input-group {
+            position: relative;
+            margin-bottom: 20px;
+            }
+            .input-group label {
+            position: absolute;
+            top: 9px;
+            left: 10px;
+            font-size: 16px;
+            color: #cdcdcd;
+            font-weight: normal;
+            padding: 2px 5px;
+            z-index: 5;
+            -webkit-transition: all 0.3s linear;
+            transition: all 0.3s linear;
+            }
+            .input-group input {
+            outline: none;
+            display: block;
+            width: 100%;
+            height: 40px;
+            position: relative;
+            z-index: 3;
+            border: 1px solid #d9d9d9;
+            padding: 10px 10px;
+            background:black;
+            box-sizing: border-box;
+            font-weight: 400;
+            -webkit-transition: 0.3s ease;
+            transition: 0.3s ease;
+            }
+            .input-group .lighting {
+            background:deeppink;
+            width: 0;
+            height: 2px;
+            display: inline-block;
+            position: absolute;
+            top: 40px;
+            left: 0;
+            -webkit-transition: all 0.3s linear;
+            transition: all 0.3s linear;
+            }
+            .input-group.focused .lighting {
+            width: 100%;
+            }
+            .input-group.focused label {
+            background: snow;
+            font-size: 12px;
+            top: -8px;
+            left: 5px;
+            color: deeppink;
+            }
+            .input-group span.validate-tooltip {
+            margin-top: 0;
+            }
+            .wrapper {
+            width: 320px;
+            background: black;
+            margin: 20px auto;
+            min-height: 200px;
+            border: 1px solid black;
+            }
+            .wrapper .inner-warpper {
+            padding: 50px 30px 60px;
+            box-shadow: 1px 1.732px 10px 0px rgba(0, 0, 0, 0.063);
+            }
+            .wrapper .title {
+            margin-top: 0;
+            }
+            .wrapper .supporter {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #8E8E8E;
+            cursor: pointer;
+            }
+            .wrapper .remember-me {
+            cursor: pointer;
+            }
+            .wrapper input[type="checkbox"] {
+            float: left;
+            margin-right: 5px;
+            margin-top: 2px;
+            cursor: pointer;
+            }
+            .wrapper label[for="rememberMe"] {
+            cursor: pointer;
+            }
+            .wrapper .signup-wrapper {
+            padding: 10px;
+            font-size: 14px;
+            background: #EBEAEA;
+            }
+            .wrapper .signup-wrapper a {
+            text-decoration: none;
+            color: #7F7F7F;
+            }
+            .wrapper .signup-wrapper a:hover {
+            text-decoration: underline;
+            }
+            @-webkit-keyframes tooltipanimation {
+            from {
+                margin-top: -28px;
+            }
+            to {
+                margin-top: 0;
+            }
+            }
+            @keyframes tooltipanimation {
+            from {
+                margin-top: -28px;
+            }
+            to {
+                margin-top: 0;
+            }
+            }
+            .direction {
+            width: 200px;
+            position: fixed;
+            top: 120px;
+            left: 20px;
+            font-size: 14px;
+            line-height: 1.2;
+            text-align: center;
+            background: #9365B8;
+            padding: 10px;
+            color: #fff;
+            }
+            @media (max-width: 480px) {
+            .direction {
+                position: static;
+            }
+            }
+    </style>
+
+<body>
+
+    <nav class="navbar" style="background-color:lavenderblush;">
+        <div class="nav">
+            <img src="logo.jpg" alt="cit logo" width="70" height="90" style="margin-left: 0px;">
+            <h1 >SCRIBBLES</h1>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            
+            <div class="nav-items" st>
+                <div class="search" >
+                    <input type="text" class="search-box" placeholder="search brand, product">
+                    <button class="search-btn">search</button>
+                </div>
+                <a href="stationery cart.html"><img src="cart.jpg" alt=""></a>
+            </div>
+        </div>
+        <hr width = "1520">
+        <div align="center">
+            <br><br>
+            <a href="stationery_project.html" style="color: black;text-decoration: none;"><i class="fa-solid fa-house"></i>HOME</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+                <div class="dropdown">
+                    <a href="#" style="color: black;text-decoration: none;">STATIONERY</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="dropdown-content" style="width: 300px;">
+                        <br>
+                        <a href="D:\Coding\html\stationery\Public\stationery_notebooks.html">Notebooks</a>
+                        <a href="stationery_plannerjouernal.html">Planners & Journals</a>
+                        <a href="stationery_pen.html">Pens</a>
+                        <a href="stationery pencil.html">Pencils</a>
+                        <a href="stationery sharperns.html">Sharpeners</a>
+                        <a href="stationery eraser&correction.html">Eraser & correction</a>
+                        <a href="stationery highlighters.html">Highlighters</a>
+                        <a href="stationery notepads.html">Notepads</a>
+                        <a href="stationery_notebooks.html">Sticky Notes, Memo Blocks & Index</a>
+                        <a href="stationery notepads.html">Bookmarks</a>
+                    </div>
+                </div>    
+                <div class="dropdown" >
+                    <a href="#" style="color: black; text-decoration: none;">ART SUPPLIES</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="dropdown-content" style="width: 300px;">
+                        <br>
+                        <a href="stationery_paints.html">Paints</a>
+                        <a href="stationery_paints.html">Art Pencils</a>
+                        <a href="stationery_markerpen.html">Markers & Pens</a>
+                        <a href="stationery_markerpen.html">Glass Paints & Markers</a>
+                        <a href="stationery_markerpen.html">Fabric Paints & Markers</a>
+                        <a href="stationery_markerpen.html">Crayons & Oil Pastels</a>
+                        <a href="stationery_paints.html">Paint Brushes & Palette Knives</a>
+                        <a href="stationery notepads.html">Artist Sketch & Sheets</a>
+                        <a href="stationery_paints.html">Drawing</a>
+                    </div>
+                </div>
+    
+                <div class="dropdown" >
+                    <a href="stationery specialcombo.html" style="color: black;text-decoration: none;">SPECIAL COMBOS</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        
+                </div>
+    
+                <div class="dropdown">
+                    <a href="#" style="color: black;text-decoration: none;">CRAFT MATERIALS</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="dropdown-content" style="width: 300px;">
+                        <br>
+                        <a href="stationery craft.html">Masking & Decoration Tapes</a>
+                        <a href="stationery craft.html">Glue & Adhesive</a>
+                        <a href="stationery craft.html">Stencils & Stickers</a>
+                        <a href="stationery craft.html">Stamps & Pads</a>
+                        <a href="stationery craft.html">Backpacks</a>
+                        <a href="stationery craft.html">DIY Box & Kids Art Kit</a>
+                    </div>
+                </div>
+    
+                <div class="dropdown">
+                    <a href="#" style="color: black;text-decoration: none;">DESK TOOLS</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="dropdown-content">
+                        <br>
+                        <div class="desk" style="width: 400px;">
+                            <a href="stationery desktool.html">Office Essentials</a>
+                            <a href="stationery desktool.html">Work from Home</a>
+                            <a href="stationery desktool.html">Straplers & Punches</a>
+                            <a href="stationery notepads.html">Scissors & Paper-Trimmers</a>
+                            <a href="stationery desktool.html">Pen Stand & Organisers</a>
+                            <a href="stationery desktool.html">Rulers & Measuring Tools</a>
+                            <a href="stationery desktool.html">Cutters & Tape Dispenser</a>
+                            <a href="stationery desktool.html">Paperclips, Fasteners & Rubber bands</a>
+                            <a href="stationery desktool.html">Folders & Fillings</a>
+                            <a href="stationery desktool.html">Digital Calculators</a>
+                            <a href="stationery desktool.html">White-Board & Permanent Markers</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown" >
+                    <a href="#" style="color: black;text-decoration: none;">RETURN AND EXCHANGE</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+    
+            <br><br>
+        </div>
+        </nav>
+    
+<!-- partial:index.partial.html -->
+<div class="wrapper">
+  <div class="inner-warpper text-center">
+    <h2 class="title" style="color: snow;">create new account</h2>
+    <br>
+    <form action="sign_in" id="formvalidate" method="post">
+      <div class="input-group">
+        <label class="palceholder" for="userName"><i class="fa-solid fa-user"></i>User Name</label>
+        <input class="form-control" name="userName" id="userName" type="text" placeholder="" style="color: snow;" />
+        <span class="lighting"></span>
+      </div>
+      <div class="input-group">
+        <label class="palceholder" for="userPassword"><i class="fa-solid fa-key"></i>Password</label>
+        <input class="form-control" name="userPassword" id="userPassword" type="password" placeholder="" style="color: snow;" />
+        <span class="lighting"></span>
+      </div>
+      <div class="input-group">
+        <label class="palceholder" for="userConfirmPassword"><i class="fa-solid fa-key"></i>Conform-Password</label>
+        <input class="form-control" name="conformpassword" id="conformpassword" type="Confirmpassword" placeholder="" style="color: snow;" />
+        <span class="lighting"></span>
+      </div>
+      <div class="input-group">
+        <label class="palceholder" for="E-mail"><i class="fa-solid fa-envelope"></i>E-mail</label>
+        <input class="form-control" name="email" id="email" type="E-mail" placeholder=""  style="color: snow;"/>
+        <span class="lighting"></span>
+      </div>
+      <div class="input-group">
+        <label class="palceholder" for="Phone no."><i class="fa-solid fa-phone"></i>Phone no.</label>
+        <input class="form-control" name="Phoneno" id="Phoneno" type="Phone no." placeholder="" style="color: snow;"/>
+        <span class="lighting"></span>
+      </div>
+      <h4 style="color: snow;text-align: left;">payment details</h4>
+      <div>
+        <input type="radio" name="payment-method" value="card" id="payment-method-card" checked="true"/>
+        <label for="payment-method-card" style="color: snow;"><span>Credit Card</span></label>
+        <input type="radio" name="payment-method" value="paypal" id="payment-method-paypal"/>
+        <label for="payment-method-paypal" style="color: snow;"> <span>Paypal</span></label>
+      </div>
+      <div class="input-group">
+        <label class="palceholder" for="Card-number"><i class="fa-duotone fa-credit-card"></i>Card Number</label>
+        <input class="form-control" name="cardnumber" id="cardnumber" type="Card-number" placeholder="" style="color: snow;"/>
+        <span class="lighting"></span>
+      </div>
+      <div class="input-group">
+        <label class="palceholder" for="Card-cvc"><i class="fa-duotone fa-credit-card"></i>Card cvc</label>
+        <input class="form-control" name="cv" id="cv" type="Card-cvc" placeholder="" style="color: snow;" />
+        <span class="lighting"></span>
+      </div>
+      <h4>Terms and Conditions</h4>
+      <div class="input-group">
+        <input type="checkbox" id="terms"/>
+        <p style="color: snow;">I accept the terms and conditions for signing up to this service, and hereby confirm I have read the privacy policy.</p>
+      </div>
+
+    <button type="submit" id="login"> <a href="stationery_project.html"> Create Account </a></button>
+    </form>
+  </div>
+
+<!-- you don't need that :)  -->
+<!-- partial -->
+  <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.0/jquery.validate.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
